@@ -1,5 +1,6 @@
 package vn.edu.clevai.quiztest.service.implement;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import vn.edu.clevai.quiztest.service.ILearningObjectService;
 import java.util.List;
 
 @Service
+@Slf4j
 public class LearningObjectServiceImpl implements ILearningObjectService {
 
     private final LearningObjectRepository learningObjectRepository;

@@ -201,6 +201,26 @@ public class QuizServiceImpl implements IQuizService {
      * For testing
      */
 
+    public void resetData() {
+        List<UserQuiz> userQuizs = userQuizRepository.findAll();
+        List<UserLo> userLos = userLoRepository.findAll();
+
+        for (UserQuiz userQuiz: userQuizs) {
+            userQuiz.setHasDoneRight(false);
+            userQuiz.setModifiedBy("admin");
+            userQuiz.setCompletedTime(null);
+
+            userQuizRepository.save(userQuiz);
+        }
+
+        for (UserLo userLo: userLos) {
+            userLo.setCurrentExp(0);
+            userLo.setModifiedBy("admin");
+
+            userLoRepository.save(userLo);
+        }
+    }
+
     public void generateQuiz() {
         Random random = new Random();
         quizTypeRepository.save(QuizType.builder().name("choice").hasOption(true).hasOrder(false).hasBlank(false).hasConnection(false).build());

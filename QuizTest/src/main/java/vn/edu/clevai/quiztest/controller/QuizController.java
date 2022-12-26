@@ -48,6 +48,13 @@ public class QuizController {
         return ResponseEntity.ok("ok nhe");
     }
 
+    @GetMapping("/quiz/reset")
+    public ResponseEntity<?> resetData() {
+        quizServiceImpl.resetData();
+
+        return ResponseEntity.ok("Reset data success");
+    }
+
     @PostMapping(PathConstants.API_QUIZ_BASE_URL)
     public ResponseEntity<?> createQuiz(@RequestBody @Valid QuizRequest quizRequest) {
 
